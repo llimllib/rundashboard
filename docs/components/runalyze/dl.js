@@ -107,13 +107,15 @@ async function getActivities(cookie) {
   // TODO: check if the 2024 file is fresh and download it if it's >12 hours
   // old or summat like that
 
-  for (let year = 2023; year > 2015; year--) {
+  for (let year = 2024; year > 2015; year--) {
     const fname = `./activities-${year}.json`;
     if (!exists(fname)) {
       const body = await (
         await fetchActivities(`${year}-01-01`, `${year}-12-31`, cookie)
       ).text();
-      const activities = parseActivities(body);
+      const activities = parseActivities(body).map(
+        (o) => (o.Setting += ` ${year}`),
+      );
       fs.writeFileSync(fname, JSON.stringify(activities));
     }
   }
