@@ -114,7 +114,6 @@ async function getActivities(cookie) {
       const body = await (
         await fetchActivities(`${year}-01-01`, `${year}-12-31`, cookie)
       ).text();
-      fs.writeFileSync(`./debug-${year}.html`, body);
       const activities = parseActivities(body);
       activities.forEach((o) => {
         const [month, day] = o.Setting.split(/[\s/]/)
@@ -154,7 +153,6 @@ async function main() {
       "Accept-Language": "en-US,en;q=0.9",
     });
 
-    // TODO: save our cookies from past runs and skip logging in if they're still valid
     await login(page, "https://runalyze.com/login");
     const cookies = await page.cookies();
     cookie = cookies
