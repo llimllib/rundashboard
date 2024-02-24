@@ -36,10 +36,11 @@ function dateToUnixTimestamp(dateString) {
  * @returns { Promise<Response> }
  * */
 async function fetchActivities(start, end, cookie) {
-  start = dateToUnixTimestamp(start);
-  end = dateToUnixTimestamp(end);
+  console.log(`fetching: ${start} -> ${end}`);
+  start = dateToUnixTimestamp(start + " 00:00:00");
+  end = dateToUnixTimestamp(end + " 23:59:59");
   const url = `https://runalyze.com/call/call.DataBrowser.display.php?start=${start}&end=${end}`;
-  console.log("fetching: ", url);
+  console.log("url:", url);
   return fetch(url, {
     headers: {
       Cookie: cookie,
@@ -113,9 +114,14 @@ async function getActivities(cookie) {
       const body = await (
         await fetchActivities(`${year}-01-01`, `${year}-12-31`, cookie)
       ).text();
-      const activities = parseActivities(body).map(
-        (o) => (o.Setting += ` ${year}`),
-      );
+      fs.writeFileSync(`./debug-${year}.html`, body);
+      const activities = parseActivities(body);
+      activities.forEach((o) => {
+        const [month, day] = o.Setting.split(/[\s/]/)
+          .slice(0, 2)
+          .map(parseFloat);
+        o.Setting = new Date(year, month - 1, day).toISOString();
+      });
       fs.writeFileSync(fname, JSON.stringify(activities));
     }
   }
@@ -137,24 +143,34 @@ async function main() {
     return usage();
   }
 
-  const browser = await puppeteer.launch({ headless: false });
-  const page = await browser.newPage();
+  let cookie = "";
+  if (!exists("cookie")) {
+    const browser = await puppeteer.launch({ headless: false });
+    const page = await browser.newPage();
 
-  await page.setExtraHTTPHeaders({
-    "User-Agent":
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
-    "Accept-Language": "en-US,en;q=0.9",
-  });
+    await page.setExtraHTTPHeaders({
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
+      "Accept-Language": "en-US,en;q=0.9",
+    });
 
-  // TODO: save our cookies from past runs and skip logging in if they're still valid
-  await login(page, "https://runalyze.com/login");
-  const cookies = await page.cookies();
-  const cookieString = cookies
-    .map((cookie) => `${cookie.name}=${cookie.value}`)
-    .join("; ");
-  await browser.close();
+    // TODO: save our cookies from past runs and skip logging in if they're still valid
+    await login(page, "https://runalyze.com/login");
+    const cookies = await page.cookies();
+    cookie = cookies
+      .map((cookie) => `${cookie.name}=${cookie.value}`)
+      .join("; ");
+    await browser.close();
 
-  await getActivities(cookieString);
+    fs.writeFileSync("cookie", cookie);
+  } else {
+    cookie = fs.readFileSync("cookie");
+  }
+
+  await getActivities(cookie);
 }
 
 await main();
+
+// To concatenate all the JSON files into one array:
+// jq -n '[inputs.[]]' activities-20*.json > all_activities.json

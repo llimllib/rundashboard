@@ -75,12 +75,19 @@ export function parseActivities(body) {
   // if there are multiple activities on a single day, the date isn't listed in
   // each row. Grab it from the previous row that had a date
   for (let i = 0; i < values.length; i++) {
-    if (values[i].length == headers.length - 1) {
-      values[i].splice(
-        0,
-        0,
-        values.slice(i).findLast((val) => val[0].includes("/")),
-      );
+    const activity = values[i];
+    if (activity.length == headers.length - 1) {
+      const lastActivity = values
+        .slice(0, i)
+        .findLast((val) => val[0].includes("/"));
+      if (!lastActivity) {
+        console.log(
+          activity,
+          "unable to find last activity in",
+          values.slice(0, i),
+        );
+      }
+      activity.splice(0, 0, lastActivity[0]);
     }
   }
 
