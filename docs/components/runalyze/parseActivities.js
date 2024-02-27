@@ -5,29 +5,50 @@ import { parse } from "node-html-parser";
 
 const METERS_PER_MILE = 1609.344;
 const METERS_PER_FOOT = 0.3048;
+const METERS_PER_KM = 1000;
+
+function fahrenheitToCelsius(fahrenheit) {
+  return ((fahrenheit - 32) * 5) / 9;
+}
 
 // normalize all numbers:
 // - floats to floats
 // - miles, ft or kms to meters
 // - times to seconds
+// - minutes:seconds/mi to seconds/m
+// - degrees F into degrees C
 function tryNumeric(n) {
   // we use the fact that parseFloat throws away the end of strings, so
   // "77 %" -> 77
   if (n.match(/^[\d\.]+$/)) return parseFloat(n);
   if (n.match(/^[\d\.]+\s+%$/)) return parseFloat(n) / 100;
   if (n.match(/^[\d\.]+\s+mi$/)) return parseFloat(n) * METERS_PER_MILE;
-  if (n.match(/^[\d\.]+\s+km$/)) return parseFloat(n) * 1000;
+  if (n.match(/^[\d\.]+\s+km$/)) return parseFloat(n) * METERS_PER_KM;
   if (n.match(/^[\d\.]+\s+ft$/)) return parseFloat(n) * METERS_PER_FOOT;
 
+  // convert a pace of the form 7:01/mi or 4:56/km to meters/s
+  let pace = n.match(/^(\d+):(\d+)\/mi$/);
+  if (pace)
+    return parseFloat(pace[0]) * 60 + parseFloat(pace[1]) / METERS_PER_MILE;
+  pace = n.match(/^(\d+):(\d+)\/km$/);
+  if (pace)
+    return parseFloat(pace[0]) * 60 + parseFloat(pace[1]) / METERS_PER_KM;
+
+  //convert "78 °F" to celsius, or if "20 °C" just return 20
+  let temp = n.match(/^([\d\.]+)\s*°F$/);
+  if (temp) return fahrenheitToCelsius(parseFloat(temp[0]));
+  temp = n.match(/^([\d\.]+)\s*°C$/);
+  if (temp) return parseFloat(temp[0]);
+
   // match 34:56 or 2:34:56, and convert to seconds
-  const time = n.match(/^(\d+):(\d+)$/);
+  let time = n.match(/^(\d+):(\d+)$/);
   if (time) return parseFloat(time[1]) * 60 + parseFloat(time[2]);
-  const time2 = n.match(/^(\d+):(\d+):(\d+)$/);
-  if (time2)
+  time = n.match(/^(\d+):(\d+):(\d+)$/);
+  if (time)
     return (
-      parseFloat(time2[0]) * 3600 +
-      parseFloat(time2[1]) * 60 +
-      parseFloat(time2[2])
+      parseFloat(time[0]) * 3600 +
+      parseFloat(time[1]) * 60 +
+      parseFloat(time[2])
     );
 
   // otherwise, we didn't find a format we knew, so just leave it as is
