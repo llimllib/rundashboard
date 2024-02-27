@@ -1,8 +1,10 @@
 # Run dashboard experiment
 
 ```js
+// import these so I can get autocomplete; full list of imports here:
+// https://observablehq.com/framework/javascript/imports#implicit-imports
 import * as Plot from "npm:@observablehq/plot";
-// import * as d3 from "npm:d3";
+import * as d3 from "npm:d3";
 ```
 
 ```js echo
@@ -34,7 +36,8 @@ const [start, end] = d3.extent(activities, (d) => new Date(d.Setting));
 // range will exclude the end point, so we need to add 1 day to the max date to
 // make the range inclusive.
 //
-// Create an object { distanceInMi: 0, day: _date_ } for every date in the range
+// Create an object {<day>: { distanceInMi: 0, day: _date_ }} for every date in
+// the range
 const dates = d3.timeDay
   .range(start, end.setDate(end.getDate() + 1))
   .reduce((a, c) => ((a[c] = { distanceInMi: 0, day: c, trimp: 0 }), a), {});
