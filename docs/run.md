@@ -1,10 +1,16 @@
 # Run dashboard experiment
 
 ```js
+// Keeping this here to show how to import it, but it doesn't work because I
+// have the same function defined inline
+// import { rollupEveryDay } from "./components/timeline.js";
+
 // import these so I can get autocomplete; full list of imports here:
 // https://observablehq.com/framework/javascript/imports#implicit-imports
+// also: tsserver doesn't seem happy with the `npm:` prefix, so I've removed it
+// here
 import * as Plot from "npm:@observablehq/plot";
-import * as d3 from "npm:d3";
+// import * as d3 from "npm:d3";
 ```
 
 ```js echo
@@ -22,41 +28,45 @@ activities.forEach((a) => {
 display(Inputs.table(activities));
 ```
 
-OK, let's try to use d3 to create an object with each day:
+I couldn't figure out how to use d3.rollup in a simple way and get a key for every day, including days where there were no activities, so I ended up writing a `rollupEveryDay` function for that task
 
 ```js echo
-// Creating a binned object from datetimes isn't really supported by d3, as far
-// as I can tell: https://github.com/d3/d3-array/issues/134
-//
-// so let's do it manually
+function rollupEveryDay(data, reduce, dateKey, defaultValue) {
+  // rollup the data by day; now it has holes where any day's data was missing
+  const rollup = d3.rollup(data, reduce, dateKey);
 
-// Create an object with keys for each day in the time range
-const [start, end] = d3.extent(activities, (d) => new Date(d.Setting));
+  // for each day from start to end of the timeframe
+  const [start, end] = d3.extent(data, dateKey);
 
-// range will exclude the end point, so we need to add 1 day to the max date to
-// make the range inclusive.
-//
-// Create an object {<day>: { distanceInMi: 0, day: _date_ }} for every date in
-// the range
-const dates = d3.timeDay
-  .range(start, end.setDate(end.getDate() + 1))
-  .reduce((a, c) => ((a[c] = { distanceInMi: 0, day: c, trimp: 0 }), a), {});
+  // if the day is not prsent in the rollup, add it
+  d3.timeDay.range(start, end.setDate(end.getDate() + 1)).forEach((dt) => {
+    const day = d3.timeDay.floor(dt);
+    if (!rollup.get(day)) {
+      rollup.set(dt, defaultValue);
+    }
+  });
 
-// Now we can go through each activity, match it to the day, and add its
-// distance to the object
-activities.forEach((a) => {
-  const o = dates[d3.timeDay.floor(a.Setting)];
-  o.distanceInMi += a.Distance;
-  o.day = d3.timeDay.floor(a.Setting);
-  o.trimp += a.TRIMP;
-});
+  // finally, sort it properly; js maps iterate in insertion order so we need to
+  // allocate a new one
+  return new Map([...rollup].sort((a, b) => a[0] > b[0]));
+}
+```
 
-const sumsPerDay = Object.values(dates);
+Now we can get a map of the mileage and TRIMP of every day's activity
 
-display(
-  Inputs.table(Object.values(dates), {
-    columns: ["day", "distanceInMi", "trimp"],
-  }),
+```js echo
+const activitiesByDay = rollupEveryDay(
+  activities,
+  (values) =>
+    new Map([
+      ["miles", d3.sum(values, (d) => d.Distance)],
+      ["trimp", d3.sum(values, (d) => d.TRIMP)],
+    ]),
+  (d) => d3.timeDay.floor(d.Setting),
+  new Map([
+    ["miles", 0],
+    ["trimp", 0],
+  ]),
 );
 ```
 
@@ -79,7 +89,7 @@ display(
     y: { grid: true },
     marks: [
       Plot.lineY(
-        sumsPerDay,
+        activitiesByDay,
         Plot.windowY(
           {
             anchor: "end",
@@ -90,28 +100,32 @@ display(
           // go in this second object, and the graph still works if we put these
           // in the first object, which is bizarre
           {
-            x: "day",
+            x: ([k, _]) => k,
             // the trimp value is unitless, so let's just scale it to match it
             // roughly to the distance I've run. Empirically chose 12 as an
             // approximately good value
-            y: (d) => d.trimp / 12,
+            y: ([_, v]) => v.get("trimp") / 12,
             stroke: "green",
           },
         ),
       ),
       Plot.lineY(
-        sumsPerDay,
-        Plot.windowY({
-          anchor: "end",
-          k: k,
-          reduce: "sum",
-          x: "day",
-          y: "distanceInMi",
-          stroke: "grey",
-        }),
+        activitiesByDay,
+        Plot.windowY(
+          {
+            anchor: "end",
+            k: k,
+            reduce: "sum",
+          },
+          {
+            x: ([k, _]) => k,
+            y: ([_, v]) => v.get("miles"),
+            stroke: "grey",
+          },
+        ),
       ),
       Plot.tip(
-        sumsPerDay,
+        activitiesByDay,
         Plot.windowY(
           {
             anchor: "end",
@@ -119,11 +133,48 @@ display(
             reduce: "sum",
           },
           Plot.pointer({
-            title: (d) => `${d.day}\n${d.distanceInMi} mi\n${d.trimp} trimp`,
-            x: "day",
-            y: (d) => d.distanceInMi,
-            // y: (d) => Math.max(d.distanceInMi, d.trimp),
+            title: ([k, v]) =>
+              `${k}\n${v.get("miles")} mi\n${v.get("trimp")} trimp`,
+            x: ([d, _]) => d,
+            // y: ([_, v]) => v.get("miles"),
+            y: ([_, v]) => Math.max(v.get("miles"), v.get("trimp") / 12),
           }),
+        ),
+      ),
+      Plot.text(
+        activitiesByDay,
+        Plot.selectLast(
+          Plot.windowY(
+            {
+              anchor: "end",
+              k: k,
+              reduce: "sum",
+            },
+            {
+              x: ([d, _]) => d,
+              y: ([_, v]) => v.get("miles"),
+              text: (_) => "mileage",
+              dx: 12,
+            },
+          ),
+        ),
+      ),
+      Plot.text(
+        activitiesByDay,
+        Plot.selectLast(
+          Plot.windowY(
+            {
+              anchor: "end",
+              k: k,
+              reduce: "sum",
+            },
+            {
+              x: ([d, _]) => d,
+              y: ([_, v]) => v.get("trimp") / 12,
+              text: (_) => "trimp",
+              dx: 12,
+            },
+          ),
         ),
       ),
     ],
