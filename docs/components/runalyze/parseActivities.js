@@ -68,12 +68,16 @@ export function parseActivities(body) {
   // as its value
   const headers = table
     .querySelectorAll("thead td span")
-    .map((td) => td.textContent.trim() || td.attrs["title"]);
+    .map(
+      (span) =>
+        (span.textContent.trim() || span.attrs["title"]) +
+        (span.attrs["title"].endsWith("icon") ? " icon" : ""),
+    );
 
   // pull all rows out of the table that have an activity in them
   const rows = table
-    // there are two <tbody>s, the first is the one wejwant; the second contains
-    // summary info
+    // there are two <tbody>s, the first is the one we want; the second
+    // contains summary info
     .querySelector("tbody")
     .querySelectorAll("tr")
     .filter((x) => x.querySelectorAll("td").length > 3);
@@ -115,8 +119,8 @@ export function parseActivities(body) {
   // validate that each row has the same # of values as the header list
   if (values.filter((v) => v.length != headers.length).length > 0) {
     throw new Error(
-      `invalid row found: ${inspect(
-        values.filter((v) => v.length != headers.length),
+      `invalid row found.\nHeaders: ${inspect(headers)}\nfirst <3 invalid rows: ${inspect(
+        values.filter((v) => v.length != headers.length).slice(0, 3),
       )}`,
     );
   }
