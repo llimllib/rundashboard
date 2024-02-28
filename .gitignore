@@ -6,3 +6,4 @@ yarn-error.log
 .envrc
 activities-*.json
 cookie
+.mise.toml
