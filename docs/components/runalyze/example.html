@@ -1,0 +1,560 @@
+
+
+    
+    
+        
+
+
+
+
+    <div class="panel-heading">
+                    <div class="panel-menu"><ul><li><a class="window tab" href="https://runalyze.com/settings/privacy" rel="tooltip" title="You&#x20;can&#x20;activate&#x20;your&#x20;public&#x20;athlete&#x20;page&#x20;in&#x20;your&#x20;&lt;em&gt;Privacy-&gt;Settings&lt;&#x2F;em&gt;"><i class="far fa-fw fa-id-card"></i></a></li><li><a href="https://runalyze.com/my/tools/histograms/monthly" class="window tooltipped tooltipped-w" aria-label="Activity&#x20;per&#x20;month"><i class="far fa-fw fa-chart-bar"></i></a></li><li><a href="https://runalyze.com/my/tools/histograms/weekly" class="window tooltipped tooltipped-w" aria-label="Activity&#x20;per&#x20;week"><i class="far fa-fw fa-chart-bar"></i></a></li><li><a class="window hidden-mobile" href="https://runalyze.com/my/search"><i class="fa fa-fw fa-search"></i> Search</a></li><li><a class="window hidden-mobile" href="https://runalyze.com/activity/sync"><i class="fa fa-fw fa-sync"></i> Automatic Sync</a></li><li><a class="window" href="https://runalyze.com/activity/new-upload" data-size="medium"><i class="fa fa-fw fa-plus"></i> Add workout</a></li></ul></div>        
+                                <div class="icons-left"><span id="calendar-link" class="link"><i class="far fa-fw fa-calendar-alt"></i></span><a class="ajax" href="https://runalyze.com/databrowser?start=1704067200&amp;end=1706745599" target="data-browser-inner" onclick="Pace.restart()"><i class="fa fa-fw fa-chevron-left"></i></a><a class="ajax" href="https://runalyze.com/databrowser?start=1709251200&amp;end=1711929599" target="data-browser-inner" onclick="Pace.restart()"><i class="fa fa-fw fa-chevron-right"></i></a><a class="ajax" href="https://runalyze.com/databrowser" target="data-browser-inner" onclick="Pace.restart()"><i class="fa fa-fw fa-circle"></i></a></div>
+        <h1>
+            <a class="ajax" href="https://runalyze.com/databrowser?start=1706745600&amp;end=1709251199" target="data-browser-inner" onclick="Pace.restart()">February</a>,
+            <a class="ajax" href="https://runalyze.com/databrowser?start=1704067200&amp;end=1735689599" target="data-browser-inner" onclick="Pace.restart()">2024</a>,
+            <a class="ajax" href="https://runalyze.com/databrowser?start=1708905600&amp;end=1709510390" target="data-browser-inner" onclick="Pace.restart()">9. Week</a>
+        </h1>
+
+        <div class="hover-icons">
+                            <a class="window tab" href="https://runalyze.com/settings/dataset"><i class="fa fa-fw fa-cog"></i></a>
+                        <a id="refreshDataBrowser" rel="tooltip" class="ajax" href="https://runalyze.com/databrowser?start=1706745600&amp;end=1709251199" target="data-browser-inner" onclick="Pace.restart()" title="Reload&#x20;current&#x20;datasheet"><i class="fa fa-fw fa-sync"></i></a>
+        </div>
+    </div>
+
+    <div class="panel-content">
+                    <div id="data-browser-calendar">
+                <div id="widget-calendar"></div>
+
+                <span id="calendar-result" class="hide">Choose a date ...</span>
+                <input id="calendar-start" type="hidden" value="1706745600000">
+                <input id="calendar-end" type="hidden" value="1709251199000">
+                <input id="calendar-locale" type="hidden" value="&#x7B;&quot;days&quot;&#x3A;&#x5B;&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;&#x5D;,&quot;daysMin&quot;&#x3A;&#x5B;&quot;Su&quot;,&quot;Mo&quot;,&quot;Tu&quot;,&quot;We&quot;,&quot;Th&quot;,&quot;Fr&quot;,&quot;Sa&quot;&#x5D;,&quot;daysShort&quot;&#x3A;&#x5B;&quot;Sun&quot;,&quot;Mon&quot;,&quot;Tue&quot;,&quot;Wed&quot;,&quot;Thu&quot;,&quot;Fri&quot;,&quot;Sat&quot;&#x5D;,&quot;months&quot;&#x3A;&#x5B;&quot;January&quot;,&quot;February&quot;,&quot;March&quot;,&quot;April&quot;,&quot;May&quot;,&quot;June&quot;,&quot;July&quot;,&quot;August&quot;,&quot;September&quot;,&quot;October&quot;,&quot;November&quot;,&quot;December&quot;&#x5D;,&quot;monthsShort&quot;&#x3A;&#x5B;&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;,&quot;Sep&quot;,&quot;Oct&quot;,&quot;Nov&quot;,&quot;Dec&quot;&#x5D;,&quot;weekMin&quot;&#x3A;&#x5B;&quot;wk&quot;&#x5D;&#x7D;">
+
+                <div class="c">You can select any time range by selecting two dates.</div>
+
+                <div class="c">
+                    <span class="button" id="calendar-submit">Show selection</span>
+                </div>
+            </div>
+        
+                        <div id="data-browser-container">
+            <table class="zebra-style">
+                                    <thead class="data-browser-labels">
+                        <tr class="small">
+                            <td colspan="2"></td>
+                                                            <td><span rel="tooltip" title="Setting"></span></td>
+                                                            <td><span rel="tooltip" title="Sport"></span></td>
+                                                            <td><span rel="tooltip" title="Title">Title</span></td>
+                                                            <td><span rel="tooltip" title="Activity&#x20;type">Type</span></td>
+                                                            <td><span rel="tooltip" title="TRIMP">TRIMP</span></td>
+                                                            <td><span rel="tooltip" title="Distance">Distance</span></td>
+                                                            <td><span rel="tooltip" title="Duration">Duration</span></td>
+                                                            <td><span rel="tooltip" title="Pace">Pace</span></td>
+                                                            <td><span rel="tooltip" title="Effective&#x20;VO&lt;sub&gt;2&lt;&#x2F;sub&gt;max">VO<sub>2</sub>max</span></td>
+                                                            <td><span rel="tooltip" title="Elevation">Elev.</span></td>
+                                                            <td><span rel="tooltip" title="Energy">Energy</span></td>
+                                                            <td><span rel="tooltip" title="avg.&#x20;Heart&#x20;rate">avg. HR</span></td>
+                                                            <td><span rel="tooltip" title="Temperature">Temp.</span></td>
+                                                            <td><span rel="tooltip" title="Weather"></span></td>
+                                                            <td><span rel="tooltip" title="Effective&#x20;VO&lt;sub&gt;2&lt;&#x2F;sub&gt;max&#x20;icon">VO<sub>2</sub>max</span></td>
+                                                    </tr>
+                    </thead>
+                
+                <tbody class="top-and-bottom-border"><tr class="r training" id="training_87184110" onclick="Pace.restart();Runalyze.Training.load(87184110, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/01&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-01" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Thu</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/87184110/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="87184110"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="87184110"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/87184110/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="87184110" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c82a2a;">79</span></td>
+                                                                            <td>8.1&nbsp;mi</td>
+                                                                            <td>1:03:27</td>
+                                                                            <td class="small">7:50/mi</td>
+                                                                            <td><a class="window" href="activity/87184110/vo2max-info">61.26</a></td>
+                                                                            <td class="small"><a class="window" href="activity/87184110/elevation-info">223&nbsp;ft</a></td>
+                                                                            <td class="small">909&nbsp;kcal</td>
+                                                                            <td class="small">70&nbsp;&#37;</td>
+                                                                            <td class="small">23&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 23&nbsp;°F&lt;br&gt;Humidity: 100&nbsp;&#37;&lt;br&gt;Cloud Cover: 100&nbsp;&#37;&lt;br&gt;Pressure: 1015&nbsp;hpa&lt;br&gt;Wind Speed: 4&nbsp;mph&lt;br&gt;Wind Degree: 235&deg;&lt;br&gt;"><i class=" weather-night"></i></i></td>
+                                                                            <td><a class="window" href="activity/87184110/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-up  fa-rotate-45" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 61.26"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_87264343" onclick="Pace.restart();Runalyze.Training.load(87264343, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/02&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-02" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Fri</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/87264343/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="87264343"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="87264343"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/87264343/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="87264343" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c80000;">149</span></td>
+                                                                            <td>12.0&nbsp;mi</td>
+                                                                            <td>1:26:43</td>
+                                                                            <td class="small">7:13/mi</td>
+                                                                            <td><a class="window" href="activity/87264343/vo2max-info">60.61</a></td>
+                                                                            <td class="small"><a class="window" href="activity/87264343/elevation-info">266&nbsp;ft</a></td>
+                                                                            <td class="small">1370&nbsp;kcal</td>
+                                                                            <td class="small">76&nbsp;&#37;</td>
+                                                                            <td class="small">30&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 30&nbsp;°F&lt;br&gt;Humidity: 95&nbsp;&#37;&lt;br&gt;Cloud Cover: 95&nbsp;&#37;&lt;br&gt;Pressure: 1011&nbsp;hpa&lt;br&gt;Wind Speed: 6&nbsp;mph&lt;br&gt;Wind Degree: 4&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/87264343/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-up  fa-rotate-45" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 60.61"></i></a></td>
+                                                                    </tr><tr class="r">
+                                <td class="l" style="width:24px;"></td>
+                                <td class="l as-small-as-possible">        02/03&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-03" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Sat</td>
+                                <td colspan="15" class="l"><a href="https://runalyze.com/my/weather/forecast/2024-02-03" class="window">    </a></td>
+                            </tr><tr class="r">
+                                <td class="l" style="width:24px;"></td>
+                                <td class="l as-small-as-possible">        02/04&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-04" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Sun</td>
+                                <td colspan="15" class="l"><a href="https://runalyze.com/my/weather/forecast/2024-02-04" class="window">    </a></td>
+                            </tr><tr class="r top-separated">
+                                <td class="l" style="width:24px;"></td>
+                                <td class="l as-small-as-possible">        02/05&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-05" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Mon</td>
+                                <td colspan="15" class="l"><a href="https://runalyze.com/my/weather/forecast/2024-02-05" class="window">    </a></td>
+                            </tr><tr class="r training" id="training_87729136" onclick="Pace.restart();Runalyze.Training.load(87729136, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/06&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-06" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Tue</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/87729136/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="87729136"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="87729136"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/87729136/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="87729136" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Sports-Mode"></i></td>
+                                                                            <td class="small l"><span rel="tooltip" title="Snowmass Village Resort Snowboarding">Snowmass Village ...</span></td>
+                                                                            <td></td>
+                                                                            <td><span style="color:#c80000;">158</span></td>
+                                                                            <td>28.7&nbsp;mi</td>
+                                                                            <td>5:33:46</td>
+                                                                            <td class="small">8.3&nbsp;km/h</td>
+                                                                            <td></td>
+                                                                            <td class="small"><a class="window" href="activity/87729136/elevation-info">13156&nbsp;ft</a></td>
+                                                                            <td class="small">2037&nbsp;kcal</td>
+                                                                            <td class="small">53&nbsp;&#37;</td>
+                                                                            <td class="small">39&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 39&nbsp;°F&lt;br&gt;Humidity: 52&nbsp;&#37;&lt;br&gt;Cloud Cover: 52&nbsp;&#37;&lt;br&gt;Pressure: 1009&nbsp;hpa&lt;br&gt;Wind Speed: 11&nbsp;mph&lt;br&gt;Wind Degree: 178&deg;&lt;br&gt;"></i></td>
+                                                                            <td></td>
+                                                                    </tr><tr class="r training" id="training_87735486" onclick="Pace.restart();Runalyze.Training.load(87735486, false, event)"><td colspan="2"></td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/87735486/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="87735486"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="87735486"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/87735486/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="87735486" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Treadmill Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c80000;">112</span></td>
+                                                                            <td>7.8&nbsp;mi</td>
+                                                                            <td>1:10:45</td>
+                                                                            <td class="small">9:07/mi</td>
+                                                                            <td><a class="window" href="activity/87735486/vo2max-info">45.67</a></td>
+                                                                            <td class="small"></td>
+                                                                            <td class="small">984&nbsp;kcal</td>
+                                                                            <td class="small">76&nbsp;&#37;</td>
+                                                                            <td class="small"></td>
+                                                                            <td></td>
+                                                                            <td><a class="window" href="activity/87735486/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-down" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 45.67"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_87799465" onclick="Pace.restart();Runalyze.Training.load(87799465, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/07&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-07" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Wed</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/87799465/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="87799465"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="87799465"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/87799465/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="87799465" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Treadmill Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c80000;">132</span></td>
+                                                                            <td>8.8&nbsp;mi</td>
+                                                                            <td>1:15:29</td>
+                                                                            <td class="small">8:33/mi</td>
+                                                                            <td><a class="window" href="activity/87799465/vo2max-info">47.60</a></td>
+                                                                            <td class="small"></td>
+                                                                            <td class="small">1110&nbsp;kcal</td>
+                                                                            <td class="small">78&nbsp;&#37;</td>
+                                                                            <td class="small"></td>
+                                                                            <td></td>
+                                                                            <td><a class="window" href="activity/87799465/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-down" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 47.60"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_87843004" onclick="Pace.restart();Runalyze.Training.load(87843004, false, event)"><td colspan="2"></td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/87843004/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="87843004"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="87843004"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/87843004/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="87843004" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Sports-Mode"></i></td>
+                                                                            <td class="small l"><span rel="tooltip" title="Snowmass Village Resort Snowboarding">Snowmass Village ...</span></td>
+                                                                            <td></td>
+                                                                            <td><span style="color:#c80000;">187</span></td>
+                                                                            <td>35.7&nbsp;mi</td>
+                                                                            <td>6:06:03</td>
+                                                                            <td class="small">9.4&nbsp;km/h</td>
+                                                                            <td></td>
+                                                                            <td class="small"><a class="window" href="activity/87843004/elevation-info">15059&nbsp;ft</a></td>
+                                                                            <td class="small">2271&nbsp;kcal</td>
+                                                                            <td class="small">53&nbsp;&#37;</td>
+                                                                            <td class="small">28&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 28&nbsp;°F&lt;br&gt;Humidity: 60&nbsp;&#37;&lt;br&gt;Cloud Cover: 60&nbsp;&#37;&lt;br&gt;Pressure: 1001&nbsp;hpa&lt;br&gt;Wind Speed: 9&nbsp;mph&lt;br&gt;Wind Degree: 236&deg;&lt;br&gt;"></i></td>
+                                                                            <td></td>
+                                                                    </tr><tr class="r training" id="training_87927969" onclick="Pace.restart();Runalyze.Training.load(87927969, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/08&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-08" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Thu</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/87927969/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="87927969"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="87927969"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/87927969/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="87927969" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Sports-Mode"></i></td>
+                                                                            <td class="small l"><span rel="tooltip" title="Snowmass Village Resort Snowboarding">Snowmass Village ...</span></td>
+                                                                            <td></td>
+                                                                            <td><span style="color:#c80000;">237</span></td>
+                                                                            <td>32.3&nbsp;mi</td>
+                                                                            <td>6:20:07</td>
+                                                                            <td class="small">8.2&nbsp;km/h</td>
+                                                                            <td></td>
+                                                                            <td class="small"><a class="window" href="activity/87927969/elevation-info">20190&nbsp;ft</a></td>
+                                                                            <td class="small">2581&nbsp;kcal</td>
+                                                                            <td class="small">56&nbsp;&#37;</td>
+                                                                            <td class="small">25&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 25&nbsp;°F&lt;br&gt;Humidity: 57&nbsp;&#37;&lt;br&gt;Cloud Cover: 57&nbsp;&#37;&lt;br&gt;Pressure: 1012&nbsp;hpa&lt;br&gt;Wind Speed: 7&nbsp;mph&lt;br&gt;Wind Degree: 253&deg;&lt;br&gt;"></i></td>
+                                                                            <td></td>
+                                                                    </tr><tr class="r training" id="training_88004186" onclick="Pace.restart();Runalyze.Training.load(88004186, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/09&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-09" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Fri</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/88004186/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="88004186"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="88004186"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/88004186/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="88004186" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Sports-Mode"></i></td>
+                                                                            <td class="small l"><span rel="tooltip" title="Snowmass Village Resort Snowboarding">Snowmass Village ...</span></td>
+                                                                            <td></td>
+                                                                            <td><span style="color:#c80000;">125</span></td>
+                                                                            <td>32.4&nbsp;mi</td>
+                                                                            <td>5:47:32</td>
+                                                                            <td class="small">9.0&nbsp;km/h</td>
+                                                                            <td></td>
+                                                                            <td class="small"><a class="window" href="activity/88004186/elevation-info">15892&nbsp;ft</a></td>
+                                                                            <td class="small">1829&nbsp;kcal</td>
+                                                                            <td class="small">48&nbsp;&#37;</td>
+                                                                            <td class="small">25&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 25&nbsp;°F&lt;br&gt;Humidity: 58&nbsp;&#37;&lt;br&gt;Cloud Cover: 58&nbsp;&#37;&lt;br&gt;Pressure: 1015&nbsp;hpa&lt;br&gt;Wind Speed: 5&nbsp;mph&lt;br&gt;Wind Degree: 286&deg;&lt;br&gt;"></i></td>
+                                                                            <td></td>
+                                                                    </tr><tr class="r training" id="training_88060011" onclick="Pace.restart();Runalyze.Training.load(88060011, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/10&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-10" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Sat</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/88060011/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="88060011"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="88060011"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/88060011/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="88060011" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l"><span rel="tooltip" title="Snowmass Village Running">Snowmass Village ...</span></td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c82828;">80</span></td>
+                                                                            <td>6.2&nbsp;mi</td>
+                                                                            <td>52:59</td>
+                                                                            <td class="small">8:34/mi</td>
+                                                                            <td><a class="window" href="activity/88060011/vo2max-info">52.31</a></td>
+                                                                            <td class="small"><a class="window" href="activity/88060011/elevation-info">1106&nbsp;ft</a></td>
+                                                                            <td class="small">784&nbsp;kcal</td>
+                                                                            <td class="small">75&nbsp;&#37;</td>
+                                                                            <td class="small">9&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 9&nbsp;°F&lt;br&gt;Humidity: 76&nbsp;&#37;&lt;br&gt;Cloud Cover: 76&nbsp;&#37;&lt;br&gt;Pressure: 1020&nbsp;hpa&lt;br&gt;Wind Speed: 3&nbsp;mph&lt;br&gt;Wind Degree: 158&deg;&lt;br&gt;"><i class=" weather-night"></i></i></td>
+                                                                            <td><a class="window" href="activity/88060011/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-down" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 52.31"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_88183312" onclick="Pace.restart();Runalyze.Training.load(88183312, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/11&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-11" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Sun</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/88183312/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="88183312"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="88183312"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/88183312/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="88183312" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c80000;">244</span></td>
+                                                                            <td>20.1&nbsp;mi</td>
+                                                                            <td>2:27:35</td>
+                                                                            <td class="small">7:22/mi</td>
+                                                                            <td><a class="window" href="activity/88183312/vo2max-info">59.36</a></td>
+                                                                            <td class="small"><a class="window" href="activity/88183312/elevation-info">709&nbsp;ft</a></td>
+                                                                            <td class="small">2232&nbsp;kcal</td>
+                                                                            <td class="small">76&nbsp;&#37;</td>
+                                                                            <td class="small">48&nbsp;°F</td>
+                                                                            <td><i class="weather weather-sun" rel="tooltip" title="Temperature: 48&nbsp;°F&lt;br&gt;Humidity: 54&nbsp;&#37;&lt;br&gt;Cloud Cover: 54&nbsp;&#37;&lt;br&gt;Pressure: 1009&nbsp;hpa&lt;br&gt;Wind Speed: 9&nbsp;mph&lt;br&gt;Wind Degree: 295&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/88183312/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-right" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 59.36"></i></a></td>
+                                                                    </tr><tr class="r top-separated training" id="training_88225920" onclick="Pace.restart();Runalyze.Training.load(88225920, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/12&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-12" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Mon</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/88225920/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="88225920"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="88225920"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/88225920/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="88225920" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c83c3c;">70</span></td>
+                                                                            <td>7.3&nbsp;mi</td>
+                                                                            <td>1:00:03</td>
+                                                                            <td class="small">8:11/mi</td>
+                                                                            <td><a class="window" href="activity/88225920/vo2max-info">59.13</a></td>
+                                                                            <td class="small"><a class="window" href="activity/88225920/elevation-info">190&nbsp;ft</a></td>
+                                                                            <td class="small">824&nbsp;kcal</td>
+                                                                            <td class="small">69&nbsp;&#37;</td>
+                                                                            <td class="small">30&nbsp;°F</td>
+                                                                            <td><i class="weather weather-sun" rel="tooltip" title="Temperature: 30&nbsp;°F&lt;br&gt;Humidity: 88&nbsp;&#37;&lt;br&gt;Cloud Cover: 88&nbsp;&#37;&lt;br&gt;Pressure: 1012&nbsp;hpa&lt;br&gt;Wind Speed: 2&nbsp;mph&lt;br&gt;Wind Degree: 293&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/88225920/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-right" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 59.13"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_88313594" onclick="Pace.restart();Runalyze.Training.load(88313594, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/13&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-13" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Tue</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/88313594/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="88313594"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="88313594"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/88313594/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="88313594" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c81010;">92</span></td>
+                                                                            <td>8.0&nbsp;mi</td>
+                                                                            <td>1:03:21</td>
+                                                                            <td class="small">7:55/mi</td>
+                                                                            <td><a class="window" href="activity/88313594/vo2max-info">57.37</a></td>
+                                                                            <td class="small"><a class="window" href="activity/88313594/elevation-info">328&nbsp;ft</a></td>
+                                                                            <td class="small">940&nbsp;kcal</td>
+                                                                            <td class="small">73&nbsp;&#37;</td>
+                                                                            <td class="small">32&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 32&nbsp;°F&lt;br&gt;Humidity: 71&nbsp;&#37;&lt;br&gt;Cloud Cover: 71&nbsp;&#37;&lt;br&gt;Pressure: 1006&nbsp;hpa&lt;br&gt;Wind Speed: 12&nbsp;mph&lt;br&gt;Wind Degree: 43&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/88313594/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-right  fa-rotate-45" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 57.37"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_88411973" onclick="Pace.restart();Runalyze.Training.load(88411973, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/14&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-14" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Wed</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/88411973/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="88411973"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="88411973"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/88411973/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="88411973" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c80000;">166</span></td>
+                                                                            <td>12.1&nbsp;mi</td>
+                                                                            <td>1:26:32</td>
+                                                                            <td class="small">7:10/mi</td>
+                                                                            <td><a class="window" href="activity/88411973/vo2max-info">57.99</a></td>
+                                                                            <td class="small"><a class="window" href="activity/88411973/elevation-info">354&nbsp;ft</a></td>
+                                                                            <td class="small">1399&nbsp;kcal</td>
+                                                                            <td class="small">79&nbsp;&#37;</td>
+                                                                            <td class="small">25&nbsp;°F</td>
+                                                                            <td><i class="weather " rel="tooltip" title="Temperature: 25&nbsp;°F&lt;br&gt;Humidity: 54&nbsp;&#37;&lt;br&gt;Cloud Cover: 54&nbsp;&#37;&lt;br&gt;Pressure: 1007&nbsp;hpa&lt;br&gt;Wind Speed: 19&nbsp;mph&lt;br&gt;Wind Degree: 315&deg;&lt;br&gt;"><i class="weather-windy"></i></i></td>
+                                                                            <td><a class="window" href="activity/88411973/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-right" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 57.99"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_88576807" onclick="Pace.restart();Runalyze.Training.load(88576807, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/15&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-15" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Thu</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/88576807/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="88576807"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="88576807"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/88576807/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="88576807" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c80e0e;">93</span></td>
+                                                                            <td>7.1&nbsp;mi</td>
+                                                                            <td>55:41</td>
+                                                                            <td class="small">7:48/mi</td>
+                                                                            <td><a class="window" href="activity/88576807/vo2max-info">55.12</a></td>
+                                                                            <td class="small"><a class="window" href="activity/88576807/elevation-info">180&nbsp;ft</a></td>
+                                                                            <td class="small">858&nbsp;kcal</td>
+                                                                            <td class="small">76&nbsp;&#37;</td>
+                                                                            <td class="small">36&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 36&nbsp;°F&lt;br&gt;Humidity: 36&nbsp;&#37;&lt;br&gt;Cloud Cover: 36&nbsp;&#37;&lt;br&gt;Pressure: 1015&nbsp;hpa&lt;br&gt;Wind Speed: 6&nbsp;mph&lt;br&gt;Wind Degree: 310&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/88576807/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-down" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 55.12"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_88672906" onclick="Pace.restart();Runalyze.Training.load(88672906, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/16&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-16" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Fri</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/88672906/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="88672906"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="88672906"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/88672906/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="88672906" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c80000;">176</span></td>
+                                                                            <td>12.1&nbsp;mi</td>
+                                                                            <td>1:23:36</td>
+                                                                            <td class="small">6:56/mi</td>
+                                                                            <td><a class="window" href="activity/88672906/vo2max-info">58.22</a></td>
+                                                                            <td class="small"><a class="window" href="activity/88672906/elevation-info">400&nbsp;ft</a></td>
+                                                                            <td class="small">1395&nbsp;kcal</td>
+                                                                            <td class="small">82&nbsp;&#37;</td>
+                                                                            <td class="small">32&nbsp;°F</td>
+                                                                            <td><i class="weather " rel="tooltip" title="Temperature: 32&nbsp;°F&lt;br&gt;Humidity: 49&nbsp;&#37;&lt;br&gt;Cloud Cover: 49&nbsp;&#37;&lt;br&gt;Pressure: 1007&nbsp;hpa&lt;br&gt;Wind Speed: 19&nbsp;mph&lt;br&gt;Wind Degree: 315&deg;&lt;br&gt;"><i class="weather-windy"></i></i></td>
+                                                                            <td><a class="window" href="activity/88672906/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-right" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 58.22"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_88713050" onclick="Pace.restart();Runalyze.Training.load(88713050, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/17&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-17" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Sat</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/88713050/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="88713050"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="88713050"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/88713050/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="88713050" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c87a7a;">39</span></td>
+                                                                            <td>4.3&nbsp;mi</td>
+                                                                            <td>34:19</td>
+                                                                            <td class="small">8:04/mi</td>
+                                                                            <td><a class="window" href="activity/88713050/vo2max-info">61.05</a></td>
+                                                                            <td class="small"><a class="window" href="activity/88713050/elevation-info">184&nbsp;ft</a></td>
+                                                                            <td class="small">488&nbsp;kcal</td>
+                                                                            <td class="small">69&nbsp;&#37;</td>
+                                                                            <td class="small">27&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 27&nbsp;°F&lt;br&gt;Humidity: 67&nbsp;&#37;&lt;br&gt;Cloud Cover: 67&nbsp;&#37;&lt;br&gt;Pressure: 1008&nbsp;hpa&lt;br&gt;Wind Speed: 6&nbsp;mph&lt;br&gt;Wind Degree: 263&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/88713050/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-up  fa-rotate-45" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 61.05"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_88822929" onclick="Pace.restart();Runalyze.Training.load(88822929, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/18&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-18" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Sun</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/88822929/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="88822929"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="88822929"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/88822929/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="88822929" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c80000;">229</span></td>
+                                                                            <td>20.1&nbsp;mi</td>
+                                                                            <td>2:29:14</td>
+                                                                            <td class="small">7:26/mi</td>
+                                                                            <td><a class="window" href="activity/88822929/vo2max-info">60.27</a></td>
+                                                                            <td class="small"><a class="window" href="activity/88822929/elevation-info">781&nbsp;ft</a></td>
+                                                                            <td class="small">2263&nbsp;kcal</td>
+                                                                            <td class="small">75&nbsp;&#37;</td>
+                                                                            <td class="small">23&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 23&nbsp;°F&lt;br&gt;Humidity: 50&nbsp;&#37;&lt;br&gt;Cloud Cover: 50&nbsp;&#37;&lt;br&gt;Pressure: 1010&nbsp;hpa&lt;br&gt;Wind Speed: 12&nbsp;mph&lt;br&gt;Wind Degree: 228&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/88822929/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-up  fa-rotate-45" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 60.27"></i></a></td>
+                                                                    </tr><tr class="r top-separated training" id="training_88891114" onclick="Pace.restart();Runalyze.Training.load(88891114, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/19&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-19" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Mon</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/88891114/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="88891114"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="88891114"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/88891114/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="88891114" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c84c4c;">62</span></td>
+                                                                            <td>7.7&nbsp;mi</td>
+                                                                            <td>1:01:16</td>
+                                                                            <td class="small">7:59/mi</td>
+                                                                            <td><a class="window" href="activity/88891114/vo2max-info">63.82</a></td>
+                                                                            <td class="small"><a class="window" href="activity/88891114/elevation-info">226&nbsp;ft</a></td>
+                                                                            <td class="small">824&nbsp;kcal</td>
+                                                                            <td class="small">67&nbsp;&#37;</td>
+                                                                            <td class="small">27&nbsp;°F</td>
+                                                                            <td><i class="weather " rel="tooltip" title="Temperature: 27&nbsp;°F&lt;br&gt;Humidity: 49&nbsp;&#37;&lt;br&gt;Cloud Cover: 49&nbsp;&#37;&lt;br&gt;Pressure: 1015&nbsp;hpa&lt;br&gt;Wind Speed: 15&nbsp;mph&lt;br&gt;Wind Degree: 301&deg;&lt;br&gt;"><i class="weather-windy"></i></i></td>
+                                                                            <td><a class="window" href="activity/88891114/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-up" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 63.82"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_89066596" onclick="Pace.restart();Runalyze.Training.load(89066596, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/20&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-20" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Tue</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/89066596/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="89066596"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="89066596"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/89066596/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="89066596" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c81414;">90</span></td>
+                                                                            <td>8.0&nbsp;mi</td>
+                                                                            <td>59:24</td>
+                                                                            <td class="small">7:25/mi</td>
+                                                                            <td><a class="window" href="activity/89066596/vo2max-info">60.38</a></td>
+                                                                            <td class="small"><a class="window" href="activity/89066596/elevation-info">249&nbsp;ft</a></td>
+                                                                            <td class="small">916&nbsp;kcal</td>
+                                                                            <td class="small">75&nbsp;&#37;</td>
+                                                                            <td class="small">32&nbsp;°F</td>
+                                                                            <td><i class="weather weather-sun" rel="tooltip" title="Temperature: 32&nbsp;°F&lt;br&gt;Humidity: 52&nbsp;&#37;&lt;br&gt;Cloud Cover: 52&nbsp;&#37;&lt;br&gt;Pressure: 1032&nbsp;hpa&lt;br&gt;Wind Speed: 3&nbsp;mph&lt;br&gt;Wind Degree: 157&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/89066596/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-up  fa-rotate-45" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 60.38"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_89111554" onclick="Pace.restart();Runalyze.Training.load(89111554, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/21&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-21" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Wed</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/89111554/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="89111554"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="89111554"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/89111554/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="89111554" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c80000;">192</span></td>
+                                                                            <td>14.1&nbsp;mi</td>
+                                                                            <td>1:39:14</td>
+                                                                            <td class="small">7:03/mi</td>
+                                                                            <td><a class="window" href="activity/89111554/vo2max-info">59.15</a></td>
+                                                                            <td class="small"><a class="window" href="activity/89111554/elevation-info">449&nbsp;ft</a></td>
+                                                                            <td class="small">1614&nbsp;kcal</td>
+                                                                            <td class="small">79&nbsp;&#37;</td>
+                                                                            <td class="small">25&nbsp;°F</td>
+                                                                            <td><i class="weather weather-sun" rel="tooltip" title="Temperature: 25&nbsp;°F&lt;br&gt;Humidity: 82&nbsp;&#37;&lt;br&gt;Cloud Cover: 82&nbsp;&#37;&lt;br&gt;Pressure: 1035&nbsp;hpa&lt;br&gt;Wind Speed: 6&nbsp;mph&lt;br&gt;Wind Degree: 51&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/89111554/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-right" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 59.15"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_89197274" onclick="Pace.restart();Runalyze.Training.load(89197274, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/22&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-22" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Thu</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/89197274/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="89197274"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="89197274"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/89197274/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="89197274" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c82e2e;">77</span></td>
+                                                                            <td>7.5&nbsp;mi</td>
+                                                                            <td>58:58</td>
+                                                                            <td class="small">7:49/mi</td>
+                                                                            <td><a class="window" href="activity/89197274/vo2max-info">60.27</a></td>
+                                                                            <td class="small"><a class="window" href="activity/89197274/elevation-info">174&nbsp;ft</a></td>
+                                                                            <td class="small">857&nbsp;kcal</td>
+                                                                            <td class="small">71&nbsp;&#37;</td>
+                                                                            <td class="small">32&nbsp;°F</td>
+                                                                            <td><i class="weather " rel="tooltip" title="Temperature: 32&nbsp;°F&lt;br&gt;Humidity: 78&nbsp;&#37;&lt;br&gt;Cloud Cover: 78&nbsp;&#37;&lt;br&gt;Pressure: 1020&nbsp;hpa&lt;br&gt;Wind Speed: 6&nbsp;mph&lt;br&gt;Wind Degree: 205&deg;&lt;br&gt;"><i class="weather-cloudy weather-sunny"></i></i></td>
+                                                                            <td><a class="window" href="activity/89197274/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-up  fa-rotate-45" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 60.27"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_89315287" onclick="Pace.restart();Runalyze.Training.load(89315287, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/23&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-23" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Fri</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/89315287/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="89315287"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="89315287"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/89315287/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="89315287" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c84444;">66</span></td>
+                                                                            <td>6.5&nbsp;mi</td>
+                                                                            <td>52:14</td>
+                                                                            <td class="small">8:00/mi</td>
+                                                                            <td><a class="window" href="activity/89315287/vo2max-info">59.79</a></td>
+                                                                            <td class="small"><a class="window" href="activity/89315287/elevation-info">230&nbsp;ft</a></td>
+                                                                            <td class="small">746&nbsp;kcal</td>
+                                                                            <td class="small">70&nbsp;&#37;</td>
+                                                                            <td class="small">39&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 39&nbsp;°F&lt;br&gt;Humidity: 92&nbsp;&#37;&lt;br&gt;Cloud Cover: 92&nbsp;&#37;&lt;br&gt;Pressure: 998&nbsp;hpa&lt;br&gt;Wind Speed: 2&nbsp;mph&lt;br&gt;Wind Degree: 65&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/89315287/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-up  fa-rotate-45" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 59.79"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_89365768" onclick="Pace.restart();Runalyze.Training.load(89365768, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/24&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-24" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Sat</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/89365768/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="89365768"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="89365768"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/89365768/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="89365768" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c81212;">91</span></td>
+                                                                            <td>8.6&nbsp;mi</td>
+                                                                            <td>1:06:11</td>
+                                                                            <td class="small">7:43/mi</td>
+                                                                            <td><a class="window" href="activity/89365768/vo2max-info">60.23</a></td>
+                                                                            <td class="small"><a class="window" href="activity/89365768/elevation-info">328&nbsp;ft</a></td>
+                                                                            <td class="small">970&nbsp;kcal</td>
+                                                                            <td class="small">72&nbsp;&#37;</td>
+                                                                            <td class="small">30&nbsp;°F</td>
+                                                                            <td><i class="weather " rel="tooltip" title="Temperature: 30&nbsp;°F&lt;br&gt;Humidity: 56&nbsp;&#37;&lt;br&gt;Cloud Cover: 56&nbsp;&#37;&lt;br&gt;Pressure: 1001&nbsp;hpa&lt;br&gt;Wind Speed: 17&nbsp;mph&lt;br&gt;Wind Degree: 339&deg;&lt;br&gt;"><i class="weather-windy"></i></i></td>
+                                                                            <td><a class="window" href="activity/89365768/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-up  fa-rotate-45" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 60.23"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_89438171" onclick="Pace.restart();Runalyze.Training.load(89438171, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/25&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-25" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Sun</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/89438171/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="89438171"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="89438171"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/89438171/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="89438171" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c80000;">221</span></td>
+                                                                            <td>18.4&nbsp;mi</td>
+                                                                            <td>2:11:32</td>
+                                                                            <td class="small">7:09/mi</td>
+                                                                            <td><a class="window" href="activity/89438171/vo2max-info">60.94</a></td>
+                                                                            <td class="small"><a class="window" href="activity/89438171/elevation-info">702&nbsp;ft</a></td>
+                                                                            <td class="small">2090&nbsp;kcal</td>
+                                                                            <td class="small">77&nbsp;&#37;</td>
+                                                                            <td class="small">16&nbsp;°F</td>
+                                                                            <td><i class="weather weather-moon" rel="tooltip" title="Temperature: 16&nbsp;°F&lt;br&gt;Humidity: 56&nbsp;&#37;&lt;br&gt;Cloud Cover: 56&nbsp;&#37;&lt;br&gt;Pressure: 1019&nbsp;hpa&lt;br&gt;Wind Speed: 4&nbsp;mph&lt;br&gt;Wind Degree: 299&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/89438171/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-up  fa-rotate-45" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 60.94"></i></a></td>
+                                                                    </tr><tr class="r top-separated training" id="training_89525441" onclick="Pace.restart();Runalyze.Training.load(89525441, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/26&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-26" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Mon</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/89525441/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="89525441"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="89525441"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/89525441/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="89525441" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c84040;">68</span></td>
+                                                                            <td>7.7&nbsp;mi</td>
+                                                                            <td>1:02:13</td>
+                                                                            <td class="small">8:03/mi</td>
+                                                                            <td><a class="window" href="activity/89525441/vo2max-info">62.15</a></td>
+                                                                            <td class="small"><a class="window" href="activity/89525441/elevation-info">226&nbsp;ft</a></td>
+                                                                            <td class="small">850&nbsp;kcal</td>
+                                                                            <td class="small">68&nbsp;&#37;</td>
+                                                                            <td class="small">30&nbsp;°F</td>
+                                                                            <td><i class="weather weather-cloudy" rel="tooltip" title="Temperature: 30&nbsp;°F&lt;br&gt;Humidity: 76&nbsp;&#37;&lt;br&gt;Cloud Cover: 76&nbsp;&#37;&lt;br&gt;Pressure: 1015&nbsp;hpa&lt;br&gt;Wind Speed: 12&nbsp;mph&lt;br&gt;Wind Degree: 222&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/89525441/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-up" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 62.15"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_89615394" onclick="Pace.restart();Runalyze.Training.load(89615394, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/27&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-27" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;Tue</td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/89615394/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="89615394"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="89615394"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/89615394/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="89615394" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c81c1c;">86</span></td>
+                                                                            <td>8.0&nbsp;mi</td>
+                                                                            <td>1:00:02</td>
+                                                                            <td class="small">7:30/mi</td>
+                                                                            <td><a class="window" href="activity/89615394/vo2max-info">60.67</a></td>
+                                                                            <td class="small"><a class="window" href="activity/89615394/elevation-info">259&nbsp;ft</a></td>
+                                                                            <td class="small">921&nbsp;kcal</td>
+                                                                            <td class="small">74&nbsp;&#37;</td>
+                                                                            <td class="small">37&nbsp;°F</td>
+                                                                            <td><i class="weather weather-sun" rel="tooltip" title="Temperature: 37&nbsp;°F&lt;br&gt;Humidity: 88&nbsp;&#37;&lt;br&gt;Cloud Cover: 88&nbsp;&#37;&lt;br&gt;Pressure: 1020&nbsp;hpa&lt;br&gt;Wind Speed: 6&nbsp;mph&lt;br&gt;Wind Degree: 122&deg;&lt;br&gt;"></i></td>
+                                                                            <td><a class="window" href="activity/89615394/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-up  fa-rotate-45" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 60.67"></i></a></td>
+                                                                    </tr><tr class="r training" id="training_89701325" onclick="Pace.restart();Runalyze.Training.load(89701325, false, event)"><td class="l" style="width:24px;"></td>
+                                        <td class="l as-small-as-possible">        02/28&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-28" data-size="small"><i class="fa fa-fw fa-heartbeat"></i></a>&nbsp;<strong>Wed</strong></td>                                        <td class="small l"><div class="inline-menu"><ul><li class="with-submenu"><span class="link"><i class="fa fa-fw fa-wrench"></i></span><ul class="submenu"><li><a class="window" href="activity/89701325/edit" data-size="small"><i class="fa fa-fw fa-pencil-alt"></i> Edit</a> </li><li><span class="link" data-action="privacy" data-activityid="89701325"><i class="fa fa-fw fa-unlock"></i> Make public</span></li><li><span class="link" data-action="recalculate" data-activityid="89701325"><i class="fa fa-fw fa-calculator"></i> Recalculate</span></li><li><a class="window" href="activity/89701325/merge" data-size="small"><i class="fa fa-fw fa-file-upload"></i> Merge file into activity</a></li><li><span class="link" data-action="delete" data-activityid="89701325" data-confirm="Do you really want to delete this activity?"><i class="fa fa-fw fa-trash-alt"></i> Delete activity</span></li></ul></li></ul></div></td>
+                                                                            <td><i class="icons8-Running"></i></td>
+                                                                            <td class="small l">Portland Running</td>
+                                                                            <td>JOG</td>
+                                                                            <td><span style="color:#c80000;">175</span></td>
+                                                                            <td>12.0&nbsp;mi</td>
+                                                                            <td>1:24:14</td>
+                                                                            <td class="small">7:01/mi</td>
+                                                                            <td><a class="window" href="activity/89701325/vo2max-info">57.40</a></td>
+                                                                            <td class="small"><a class="window" href="activity/89701325/elevation-info">430&nbsp;ft</a></td>
+                                                                            <td class="small">1407&nbsp;kcal</td>
+                                                                            <td class="small">82&nbsp;&#37;</td>
+                                                                            <td class="small">45&nbsp;°F</td>
+                                                                            <td><i class="weather weather-basecloud" rel="tooltip" title="Temperature: 45&nbsp;°F&lt;br&gt;Humidity: 97&nbsp;&#37;&lt;br&gt;Cloud Cover: 97&nbsp;&#37;&lt;br&gt;Pressure: 1010&nbsp;hpa&lt;br&gt;Wind Speed: 19&nbsp;mph&lt;br&gt;Wind Degree: 185&deg;&lt;br&gt;"><i class="weather-drizzle"></i></i></td>
+                                                                            <td><a class="window" href="activity/89701325/vo2max-info"><i class="fa fa-fw vo2max-icon small fa-arrow-right  fa-rotate-45" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 57.40"></i></a></td>
+                                                                    </tr><tr class="r">
+                                <td class="l" style="width:24px;"></td>
+                                <td class="l as-small-as-possible">        02/29&nbsp;<a class="window unimportant" href="https://runalyze.com/health/note/2024-02-29" data-size="small"><i class="fa fa-fw fa-heartbeat fa-grey"></i></a>&nbsp;Thu</td>
+                                <td colspan="15" class="l"><a href="https://runalyze.com/my/weather/forecast/2024-02-29" class="window">            <span class="tooltipped tooltipped-n" aria-label="Moderate&#x20;or&#x20;heavy&#x20;snow&#x20;showers"><img src="//wacicon.runalyze.com/weather/64x64/day/371.png" height="17" alt="Moderate&#x20;or&#x20;heavy&#x20;snow&#x20;showers" style="max-height:17px;">        29&nbsp;°F
+        </span>    </a></td>
+                            </tr></tbody>
+                <tbody>
+                                            <tr class="r no-zebra">
+                            <td colspan="2"><small>23x</small> Running</td>
+                                                                                                <td class="small l"></td>
+                                                                                                                                <td></td>
+                                                                                                                                <td class="small l"></td>
+                                                                                                                                <td></td>
+                                                                                                                                <td><span style="color:#c80000;">2789</span></td>
+                                                                                                                                <td>232.4&nbsp;mi</td>
+                                                                                                                                <td>1d 05:25:02</td>
+                                                                                                                                <td class="small">7:36/mi</td>
+                                                                                                                                <td>58.42</td>
+                                                                                                                                <td class="small">7995&nbsp;ft</td>
+                                                                                                                                <td class="small">26751&nbsp;kcal</td>
+                                                                                                                                <td class="small">75&nbsp;&#37;</td>
+                                                                                                                                <td class="small">30&nbsp;°F</td>
+                                                                                                                                <td></td>
+                                                                                                                                <td><i class="fa fa-fw vo2max-icon small fa-arrow-right" rel="tooltip" title="VO&lt;sub&gt;2&lt;/sub&gt;max: 58.42"></i></td>
+                                                                                    </tr>
+                                            <tr class="r no-zebra">
+                            <td colspan="2"><small>4x</small> Other</td>
+                                                                                                <td class="small l"></td>
+                                                                                                                                <td></td>
+                                                                                                                                <td class="small l"></td>
+                                                                                                                                <td></td>
+                                                                                                                                <td><span style="color:#c80000;">707</span></td>
+                                                                                                                                <td>129.1&nbsp;mi</td>
+                                                                                                                                <td>23:47:28</td>
+                                                                                                                                <td class="small">8.7&nbsp;km/h</td>
+                                                                                                                                <td></td>
+                                                                                                                                <td class="small">64298&nbsp;ft</td>
+                                                                                                                                <td class="small">8718&nbsp;kcal</td>
+                                                                                                                                <td class="small">52&nbsp;&#37;</td>
+                                                                                                                                <td class="small">30&nbsp;°F</td>
+                                                                                                                                <td></td>
+                                                                                                                                <td></td>
+                                                                                    </tr>
+                                    </tbody>
+            </table>
+        </div>
+    </div>
+
+
+            <script></script>
+    
+    
+
+
+
