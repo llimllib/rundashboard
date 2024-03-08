@@ -2,6 +2,10 @@
 toc: false
 ---
 
+```js
+import { rollupEveryDay } from "./components/timeline.js";
+```
+
 <style>
 
 .hero {
@@ -60,33 +64,19 @@ activities.forEach((a) => {
   a.Setting = new Date(a.Setting);
 });
 
-// Creating a binned object from datetimes isn't really supported by d3, as far
-// as I can tell: https://github.com/d3/d3-array/issues/134
-//
-// so let's do it manually
-
-// Create an object with keys for each day in the time range
-const [start, end] = d3.extent(activities, (d) => new Date(d.Setting));
-
-// range will exclude the end point, so we need to add 1 day to the max date to
-// make the range inclusive.
-//
-// Create an object {<day>: { distanceInMi: 0, day: _date_ }} for every date in
-// the range
-const dates = d3.timeDay
-  .range(start, end.setDate(end.getDate() + 1))
-  .reduce((a, c) => ((a[c] = { distanceInMi: 0, day: c, trimp: 0 }), a), {});
-
-// Now we can go through each activity, match it to the day, and add its
-// distance to the object
-activities.forEach((a) => {
-  const o = dates[d3.timeDay.floor(a.Setting)];
-  o.distanceInMi += a.Distance;
-  o.day = d3.timeDay.floor(a.Setting);
-  o.trimp += a.TRIMP;
-});
-
-const sumsPerDay = Object.values(dates);
+const activitiesByDay = rollupEveryDay(
+  activities,
+  (values) =>
+    new Map([
+      ["miles", d3.sum(values, (d) => d.Distance)],
+      ["trimp", d3.sum(values, (d) => d.TRIMP)],
+    ]),
+  (d) => d3.timeDay.floor(d.Setting),
+  new Map([
+    ["miles", 0],
+    ["trimp", 0],
+  ]),
+);
 ```
 
 <div class="grid grid-cols-1" style="grid-auto-rows: 504px;">
@@ -97,7 +87,7 @@ const sumsPerDay = Object.values(dates);
       y: {grid: true, label: "miles"},
       marks: [
         Plot.lineY(
-          sumsPerDay,
+          activitiesByDay,
           Plot.windowY(
             {
               anchor: "end",
@@ -105,16 +95,75 @@ const sumsPerDay = Object.values(dates);
               reduce: "sum",
             },
             {
-              x: "day",
-              // the trimp value is unitless, so let's just scale it to match it
-              // roughly to the distance I've run. Empirically chose 12 as an
-              // approximately good value
-              y: (d) => d.trimp / 12,
+              x: ([k, _]) => k,
+              y: ([_, v]) => v.get("miles"),
               stroke: "green",
               tip: true,
             },
           ),
         ),
+      ]
+    }))
+  }</div>
+</div>
+
+<div class="grid grid-cols-1" style="grid-auto-rows: 504px;">
+  <div class="card">${
+    resize((width) => Plot.plot({
+      title: "Miles run over the trailing 28 days, last two years",
+      width,
+      y: {grid: true, label: "miles"},
+      marks: [
+        Plot.lineY(
+          new Map([...activitiesByDay].slice(activitiesByDay.size - (365*2))),
+          Plot.windowY(
+            {
+              anchor: "end",
+              k: 28,
+              reduce: "sum",
+            },
+            {
+              x: ([k, _]) => k,
+              y: ([_, v]) => v.get("miles"),
+              stroke: "green",
+              tip: true,
+            },
+          ),
+        ),
+      ]
+    }))
+  }</div>
+</div>
+
+<div class="grid grid-cols-1" style="grid-auto-rows: 504px;">
+  <div class="card">${
+  Inputs.table(activities, {
+    columns: ["Setting", "TRIMP", "Distance", "Duration", "Pace", "Elev.", "Energy", "VO2max"],
+    header: {
+      Setting: "date",
+    },
+    reverse: true,
+    sort: "Setting",
+    maxWidth: width-30,
+  })
+  }</div>
+</div>
+
+<div class="grid grid-cols-1" style="grid-auto-rows: 504px;">
+  <div class="card">${
+    resize((width, height) => Plot.plot({
+      title: "VO2Max, all time",
+      width,
+      height,
+      y: {grid: true, label: "miles"},
+      marks: [
+        Plot.lineY(
+          activitiesByDay, {
+          x: ([k, _]) => k,
+          y: ([_, v]) => v.get("VO2max"),
+          stroke: "green",
+          tip: true,
+        }),
       ]
     }))
   }</div>
